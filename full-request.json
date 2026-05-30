@@ -1,0 +1,39 @@
+{
+  "url": "/v1/chat/completions",
+  "method": "POST",
+  "model": "deepseek-v4-flash-search",
+  "stream": true,
+  "messagesCount": 17,
+  "toolsCount": 19,
+  "toolNames": [
+    "read",
+    "edit",
+    "write",
+    "exec",
+    "process",
+    "cron",
+    "image_generate",
+    "sessions_list",
+    "sessions_history",
+    "sessions_send",
+    "sessions_yield",
+    "sessions_spawn",
+    "subagents",
+    "session_status",
+    "web_search",
+    "web_fetch",
+    "image",
+    "memory_search",
+    "memory_get"
+  ],
+  "keys": [
+    "model",
+    "messages",
+    "stream",
+    "stream_options",
+    "store",
+    "max_tokens",
+    "tools"
+  ],
+  "maxTokens": 8192
+}

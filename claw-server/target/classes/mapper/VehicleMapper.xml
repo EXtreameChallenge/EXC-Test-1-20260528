@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.claw.mapper.VehicleMapper">
+
+    <!-- 多表联查：车辆调度汇总（vehicle + dispatch_task + fault_alert） -->
+    <select id="selectVehicleDispatchSummary" resultType="java.util.Map">
+        SELECT
+            v.id AS vehicle_id,
+            v.name AS vehicle_name,
+            v.status AS vehicle_status,
+            v.battery,
+            v.location,
+            COUNT(DISTINCT dt.id) AS total_tasks,
+            SUM(CASE WHEN dt.status = 'completed' THEN 1 ELSE 0 END) AS completed_tasks,
+            SUM(CASE WHEN dt.status = 'executing' THEN 1 ELSE 0 END) AS active_tasks,
+            COUNT(DISTINCT fa.id) AS alert_count
+        FROM vehicle v
+        LEFT JOIN dispatch_task dt ON v.id = dt.vehicle_id
+        LEFT JOIN fault_alert fa ON v.id = fa.vehicle_id AND fa.status = 'active'
+        GROUP BY v.id, v.name, v.status, v.battery, v.location
+        ORDER BY v.name
+    </select>
+
+</mapper>

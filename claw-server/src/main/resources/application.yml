@@ -1,0 +1,54 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: claw-server
+  profiles:
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+    serialization:
+      write-dates-as-timestamps: false
+  config:
+    import: optional:file:.env[.properties]
+
+mybatis-plus:
+  type-aliases-package: com.claw.entity
+  mapper-locations: classpath*:mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: method
+
+jwt:
+  access-token-expiration: 1800000
+  refresh-token-expiration: 604800000
+  secret: ${JWT_SECRET:ClawFleetManagement2026SecretKeyForJWT}
+
+glm:
+  api-key: ${GLM_API_KEY:}
+  api-url: https://open.bigmodel.cn/api/paas/v4/chat/completions
+  audio-url: https://open.bigmodel.cn/api/paas/v4/audio/transcriptions
+  model: glm-4-flash
+  timeout: 30000
+  max-retries: 2
+
+cors:
+  allowed-origins: ${CORS_ORIGINS:http://localhost:5173,http://localhost:5174,http://localhost:3000,http://localhost:3001}
