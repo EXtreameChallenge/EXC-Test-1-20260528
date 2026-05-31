@@ -1,4 +1,4 @@
-# 🚗 NeoClaw — 德莫无人车队管理系统
+# 🚗 QingClaw无人车队集群调度管理系统
 
 <div align="center">
 
@@ -7,6 +7,7 @@
 ![Vue](https://img.shields.io/badge/Vue-3.x-brightgreen.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-PC%20%7C%20Mobile%20%7C%20HarmonyOS-lightgrey.svg)
+![平台](https://img.shields.io/badge/platform-PC%20%7C%20Mobile%20%7C%20HarmonyOS-lightgrey.svg)
 
 **一套面向无人车队的多端协同调度与运营管理平台**
 
@@ -18,7 +19,7 @@
 
 ## 📖 项目简介
 
-**NeoClaw（德莫无人车队管理系统）** 是一套面向无人驾驶车队运营场景的全栈管理平台，支持 PC 管理端、移动端、华为鸿蒙端三端协同，提供车辆实时监控、智能调度、能耗分析、运营数据可视化以及 AI 智能对话等核心能力。
+**QingClaw无人车队集群调度管理系统** 是一套面向无人驾驶车队运营场景的全栈管理平台，支持 PC 管理端、移动端、华为鸿蒙端三端协同，提供车辆实时监控、智能调度、能耗分析、运营数据可视化以及 AI 智能对话等核心能力。
 
 > 本项目采用前后端分离架构，后端基于 Java Spring Boot，PC 前端基于 Vue 3，移动端基于 Node.js + HTML，同时适配华为鸿蒙（HarmonyOS）平台。
 
